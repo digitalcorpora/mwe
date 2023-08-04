@@ -1,0 +1,29 @@
+# See https://docs.github.com/en/actions/guides/building-and-testing-python
+# 2020-02-20 slg - For Dreamhost, we are now using Python 3.9 and Ubuntu-18.04
+name: CI (pip)
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: ['ubuntu-latest']
+        python-version: [3.9]   # installed version on Dreamhost
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: First Test
+        run: |
+          echo APP_NAME = $APP_NAME
+          echo env.APP_NAME = ${{ env.APP_NAME}}
+
+      - name: Second Test
+        env:
+          APP_NAME_ENV:         ${{ env.APP_NAME }}
+        run: |
+          echo APP_NAME_ENV = $APP_NAME_ENV
