@@ -19,8 +19,8 @@ jobs:
 
       - name: First Test
         run: |
-          echo ORG_NAME = ${{ env.ORG_NAME}}
-          echo MY_NAME = ${{ env.MY_NAME}}
+          echo ORG_NAME = ${{ ORG_NAME}}
+          echo MY_NAME = ${{ MY_NAME}}
           echo MY_SECRET  = ${{ secrets.MY_SECRET }}
 
       - name: Second Test
