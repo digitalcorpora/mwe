@@ -21,9 +21,15 @@ jobs:
         run: |
           echo ORG_NAME = $ORG_NAME
           echo env.ORG_NAME = ${{ env.ORG_NAME}}
+          echo MY_NAME = $MY_NAME
+          echo env.MY_NAME = ${{ env.MY_NAME}}
 
       - name: Second Test
         env:
           ORG_NAME_ENV:         ${{ env.ORG_NAME }}
+          MY_NAME_ENV:         ${{ env.MY_NAME }}
+          MY_SECRET:           ${{ secret.MY_SECRET }}
         run: |
           echo ORG_NAME_ENV = $ORG_NAME_ENV
+          echo MY_SECRET = $MY_SECRET
+          echo SHA256 = `echo $MY_SECRET | openssl sha256`
