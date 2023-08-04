@@ -21,13 +21,13 @@ jobs:
         run: |
           echo ORG_NAME = ${{ env.ORG_NAME}}
           echo MY_NAME = ${{ env.MY_NAME}}
-          echo MY_SECRET  = ${{ secret.MY_SECRET }}
+          echo MY_SECRET  = ${{ secrets.MY_SECRET }}
 
       - name: Second Test
         env:
           ORG_NAME_ENV:         ${{ env.ORG_NAME }}
           MY_NAME_ENV:         ${{ env.MY_NAME }}
-          MY_SECRET:           ${{ secret.MY_SECRET }}
+          MY_SECRET:           ${{ secrets.MY_SECRET }}
         run: |
           echo ORG_NAME_ENV = $ORG_NAME_ENV
           echo MY_SECRET = $MY_SECRET
