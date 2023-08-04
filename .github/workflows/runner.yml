@@ -19,11 +19,11 @@ jobs:
 
       - name: First Test
         run: |
-          echo APP_NAME = $APP_NAME
-          echo env.APP_NAME = ${{ env.APP_NAME}}
+          echo ORG_NAME = $ORG_NAME
+          echo env.ORG_NAME = ${{ env.ORG_NAME}}
 
       - name: Second Test
         env:
-          APP_NAME_ENV:         ${{ env.APP_NAME }}
+          ORG_NAME_ENV:         ${{ env.ORG_NAME }}
         run: |
-          echo APP_NAME_ENV = $APP_NAME_ENV
+          echo ORG_NAME_ENV = $ORG_NAME_ENV
